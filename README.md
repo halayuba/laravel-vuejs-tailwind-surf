@@ -3,7 +3,7 @@
 - Author: Simon Bashir
 - Version: 0.1
 - Release Date: Mar 15, 2021
-- A hosted demo will be published soon
+- To see a hosted demo you can visit [laravel-vue-tailwind.surf](http://laravel-vue-tailwind.surf)
 
 ### Brief Description
 Coded in `Laravel v8.32`, Laravel Vuejs Tailwind Surf is a demo project.
