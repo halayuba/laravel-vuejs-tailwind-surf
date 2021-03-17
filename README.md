@@ -6,7 +6,7 @@
 - To see a hosted demo you can visit [laravel-vue-tailwind.surf](http://laravel-vue-tailwind.surf)
 
 ### Brief Description
-Coded in `Laravel v8.32`, Laravel Vuejs Tailwind Surf is a demo project.
+Coded with `Laravel v8.32`, Laravel Vuejs Tailwind Surf is a demo project.
 
 ### Basic Features
 1. This is a "demo" project but the additional sql file "resources.sql" contains "real" data gathered from various resources and the main focus is on learning Laravel, Vuejs, and Tailwind.
@@ -39,34 +39,42 @@ Laravel Vuejs Tailwind Surf requires Laravel v8.32 (not tested with other versio
 ~~~
     composer install
 ~~~
-* Create a new database. The example below uses MYSQL (replace the * with the associated value)
+* Create a new database. The example below uses MYSQL (replace the values in [] with your preferences)
 ~~~
-    mysql -u*username -p*password
-    CREATE DATABASE *db_name;
+    mysql -u [username] -p [password]
+    CREATE DATABASE [db_name];
 ~~~
-* Update .env to your specific needs (replace the * with the associated value)
+* Update .env to your specific needs (replace the values in [] with your preferences)
 ~~~
     cp .env.example .env
     nano .env
-    DB_HOST=localhost
-    DB_DATABASE=*db_name
-    DB_USERNAME=*username
-    DB_PASSWORD=*password
+    DB_DATABASE=[db_name]
+    DB_USERNAME=[username]
+    DB_PASSWORD=[password]
 ~~~
 * Run all migrations to create and populate the database tables
 ~~~
     php artisan migrate --seed
 ~~~
+* Allow files to be overwritten by giving write permissions as the following
+~~~
+    sudo chmod -R 777 storage bootstrap/cache
+~~~
 * Run the following artisan commands
 ~~~
     npm install && npm run dev
 ~~~
-* Update the values in "baseUrl.js"
-* An additional sql file "resources.sql" is included
+* Update the values shown in [] below in "baseUrl.js" (in the resources/js/ folder) with your preferences.
+~~~
+    authApiUrl: 'http://[lvb-surf.test/]api/user/auth',
+    usersApiUrl: 'http://[lvb-surf.test]/api/users',
+    resourcesApiUrl: 'http://[lvb-surf.test]/api/resources',
+~~~
+* An optional sql file "resources.sql" is included as an example
 
 
 ### Maintainers & Contributors
-- Simon Bashir (Designer and Developer)
+- Simon Bashir
 
 ### License
 The project is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
