@@ -12301,7 +12301,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modals_ResourceDetailsModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modals/ResourceDetailsModal */ "./resources/js/components/resources/modals/ResourceDetailsModal.vue");
 /* harmony import */ var _modals_EditResourceModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modals/EditResourceModal */ "./resources/js/components/resources/modals/EditResourceModal.vue");
 /* harmony import */ var _modals_BaseModal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modals/BaseModal */ "./resources/js/components/resources/modals/BaseModal.vue");
-/* harmony import */ var _misc_ErrorAlert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../misc/ErrorAlert */ "./resources/js/components/misc/ErrorAlert.vue");
+/* harmony import */ var _misc_ErrorAlert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/misc/ErrorAlert */ "./resources/js/components/misc/ErrorAlert.vue");
 /* harmony import */ var _partials_SourceIcons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./partials/SourceIcons */ "./resources/js/components/resources/partials/SourceIcons.vue");
 /* harmony import */ var _partials_StatusIndicator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./partials/StatusIndicator */ "./resources/js/components/resources/partials/StatusIndicator.vue");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -12940,7 +12940,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _misc_ErrorAlert__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../misc/ErrorAlert */ "./resources/js/components/misc/ErrorAlert.vue");
+/* harmony import */ var _misc_ErrorAlert__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/misc/ErrorAlert */ "./resources/js/components/misc/ErrorAlert.vue");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -13319,7 +13319,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _misc_ErrorAlert__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../misc/ErrorAlert */ "./resources/js/components/misc/ErrorAlert.vue");
+/* harmony import */ var _misc_ErrorAlert__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/misc/ErrorAlert */ "./resources/js/components/misc/ErrorAlert.vue");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }

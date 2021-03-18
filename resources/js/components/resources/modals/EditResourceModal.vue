@@ -140,7 +140,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import ErrorAlert from '../../misc/ErrorAlert'
+import ErrorAlert from '@/misc/ErrorAlert'
 
 export default {
   data () {
