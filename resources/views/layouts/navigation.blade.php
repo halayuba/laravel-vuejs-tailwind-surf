@@ -20,7 +20,7 @@
 
     <div class="">
       <!-- MOBILE NAV COMPONENT -->
-      <div class="md:hidden">
+      <div class="sm:hidden">
         <mobile-nav>
           <x-mobile-nav-link route="home">Home</x-mobile-nav-link>
           <x-mobile-nav-link route="resources">Resources</x-mobile-nav-link>
