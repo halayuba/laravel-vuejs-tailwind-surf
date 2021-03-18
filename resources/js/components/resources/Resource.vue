@@ -82,7 +82,7 @@
 
     </div> <!-- CARD -->
 
-    <!-- SHOW RESOURCE DETAILS -->
+    <!-- SHOW / EDIT RESOURCE DETAILS -->
     <base-modal
       v-show="showModal"
       @closeModal="showModal = ''"

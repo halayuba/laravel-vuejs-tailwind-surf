@@ -13129,13 +13129,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -13243,11 +13236,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.form.title = '';
       this.form.author = '';
       this.form.url = '';
-      this.$modal.hide('add-resource-modal');
-    },
-    cancelForm: function cancelForm() {
-      this.closeForm();
-      this.$toastr.i('Form cancelled.');
+      this.$emit('closeModal');
     }
   })
 });
@@ -13516,13 +13505,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -13616,10 +13598,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     closeForm: function closeForm() {
       this.form.title = this.form.author = this.form.url = '';
       this.$emit('closeModal');
-    },
-    cancelForm: function cancelForm() {
-      this.closeForm();
-      this.$toastr.i('Form cancelled.');
     }
   })
 });
@@ -13783,8 +13761,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modals_AddResourceModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../modals/AddResourceModal */ "./resources/js/components/resources/modals/AddResourceModal.vue");
+/* harmony import */ var _modals_BaseModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modals/BaseModal */ "./resources/js/components/resources/modals/BaseModal.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -13808,22 +13787,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {};
+    return {
+      showModal: false
+    };
   },
   components: {
-    AddResourceModal: _modals_AddResourceModal__WEBPACK_IMPORTED_MODULE_0__.default
+    AddResourceModal: _modals_AddResourceModal__WEBPACK_IMPORTED_MODULE_0__.default,
+    BaseModal: _modals_BaseModal__WEBPACK_IMPORTED_MODULE_1__.default
   },
-  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)({
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)({
     auth: 'auth/auth'
   })),
   methods: {
     addResource: function addResource() {
       if (this.auth) {
-        this.$modal.show('add-resource-modal');
+        this.showModal = true;
       } else {
         this.$toastr.w('No user logged in');
         setTimeout(function () {
@@ -59062,7 +59051,7 @@ var render = function() {
         "h3",
         {
           staticClass:
-            "text-center my-2 lg:my-4 md:text-xl lg:text-2xl text-indigo-500 font-bold"
+            "text-center my-2 lg:my-4 text-xl lg:text-2xl text-indigo-500 font-bold"
         },
         [_vm._v("Add New Resource")]
       ),
@@ -59455,21 +59444,11 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "flex mt-8" }, [
+          _c("div", { staticClass: "flex mt-8 w-full" }, [
             _c(
               "button",
               {
-                staticClass: "flex-1 btn_cancel mr-2",
-                attrs: { type: "button" },
-                on: { click: _vm.cancelForm }
-              },
-              [_vm._v("\n      Cancel\n    ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "flex-1 xl:text-xl xl:px-16",
+                staticClass: "flex-1",
                 class: _vm.btnState,
                 attrs: { type: "submit" }
               },
@@ -59637,7 +59616,7 @@ var render = function() {
         "h3",
         {
           staticClass:
-            "text-center my-2 lg:my-4 md:text-xl lg:text-2xl text-indigo-500 font-bold"
+            "text-center my-2 lg:my-4 text-xl lg:text-2xl text-indigo-500 font-bold"
         },
         [_vm._v("Edit Resource")]
       ),
@@ -60010,16 +59989,6 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "flex mt-8" }, [
-            _c(
-              "button",
-              {
-                staticClass: "flex-1 btn_cancel mr-2",
-                attrs: { type: "button" },
-                on: { click: _vm.cancelForm }
-              },
-              [_vm._v("\n      Cancel\n    ")]
-            ),
-            _vm._v(" "),
             _c(
               "button",
               {
@@ -60453,20 +60422,30 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c(
-        "modal",
-        {
-          attrs: {
-            name: "add-resource-modal",
-            adaptive: true,
-            width: "50%",
-            height: "auto",
-            classes: "bg-white rounded-lg p-4 shadow-sm"
+      _c("base-modal", {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.showModal,
+            expression: "showModal"
+          }
+        ],
+        on: {
+          closeModal: function($event) {
+            _vm.showModal = false
           }
         },
-        [_c("add-resource-modal")],
-        1
-      )
+        scopedSlots: _vm._u([
+          {
+            key: "content",
+            fn: function() {
+              return [_c("add-resource-modal")]
+            },
+            proxy: true
+          }
+        ])
+      })
     ],
     1
   )

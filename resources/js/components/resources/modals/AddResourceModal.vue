@@ -7,7 +7,7 @@
       :errors="errors"
     />
 
-    <h3 class="text-center my-2 lg:my-4 md:text-xl lg:text-2xl text-indigo-500 font-bold">Add New Resource</h3>
+    <h3 class="text-center my-2 lg:my-4 text-xl lg:text-2xl text-indigo-500 font-bold">Add New Resource</h3>
 
     <!-- FORM -->
     <form class="p-4"
@@ -126,17 +126,10 @@
     </div> <!-- END CONTAINING DIV -->
 
     <!-- BUTTONS -->
-    <div class="flex mt-8">
+    <div class="flex mt-8 w-full">
 
-      <!-- CANCEL -->
-      <button class="flex-1 btn_cancel mr-2" type="button"
-        @click="cancelForm"
-      >
-        Cancel
-      </button>
-
-      <!-- UPDATE -->
-      <button type="submit" class="flex-1 xl:text-xl xl:px-16"
+      <!-- SAVE -->
+      <button type="submit" class="flex-1"
         :class="btnState"
       >
         Save
@@ -248,11 +241,7 @@ export default {
       this.form.title = ''
       this.form.author = ''
       this.form.url = ''
-      this.$modal.hide('add-resource-modal')
-    },
-    cancelForm() {
-      this.closeForm()
-      this.$toastr.i('Form cancelled.')
+      this.$emit('closeModal')
     },
 
   },

@@ -7,7 +7,7 @@
       :errors="errors"
     />
 
-    <h3 class="text-center my-2 lg:my-4 md:text-xl lg:text-2xl text-indigo-500 font-bold">Edit Resource</h3>
+    <h3 class="text-center my-2 lg:my-4 text-xl lg:text-2xl text-indigo-500 font-bold">Edit Resource</h3>
 
     <!-- FORM -->
     <form class="p-4"
@@ -125,13 +125,6 @@
     <!-- BUTTONS -->
     <div class="flex mt-8">
 
-      <!-- CANCEL -->
-      <button class="flex-1 btn_cancel mr-2" type="button"
-        @click="cancelForm"
-      >
-        Cancel
-      </button>
-
       <!-- UPDATE -->
       <button type="submit" class="flex-1 xl:text-xl xl:px-16"
         :class="btnState"
@@ -167,7 +160,7 @@ export default {
     }
   },
   components:{
-    ErrorAlert
+    ErrorAlert,
   },
   props: {
     resource: { required: true }
@@ -235,10 +228,6 @@ export default {
     closeForm() {
       this.form.title = this.form.author = this.form.url = ''
       this.$emit('closeModal')
-    },
-    cancelForm() {
-      this.closeForm()
-      this.$toastr.i('Form cancelled.')
     },
 
   },

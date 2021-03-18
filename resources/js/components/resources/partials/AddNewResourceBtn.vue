@@ -8,25 +8,33 @@
       </a>
     </div> <!-- ADD NEW Resource -->
 
-    <!-- MODAL -->
-    <modal name="add-resource-modal" :adaptive="true" width="50%" height="auto" classes="bg-white rounded-lg p-4 shadow-sm">
-      <add-resource-modal />
-    </modal> <!-- MODAL -->
+    <!-- ADD NEW RESOURCE DETAILS -->
+    <base-modal
+      v-show="showModal"
+      @closeModal="showModal = false"
+    >
+       <template #content>
+         <add-resource-modal />
+       </template>
+    </base-modal>
+
   </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
   import AddResourceModal from '../modals/AddResourceModal'
+  import BaseModal from '../modals/BaseModal'
 
   export default {
     data() {
       return {
-
+        showModal: false,
       }
     },
     components:{
       AddResourceModal,
+      BaseModal
     },
     computed: {
       ...mapGetters({
@@ -36,7 +44,7 @@
     methods: {
       addResource(){
         if(this.auth){
-          this.$modal.show('add-resource-modal')
+          this.showModal = true
         } else {
           this.$toastr.w('No user logged in')
           setTimeout(function () {
