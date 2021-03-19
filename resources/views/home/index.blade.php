@@ -5,7 +5,12 @@
     Developed using Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
 
     <div class="mt-4 xl:mt-8 text:text-xl lg:text-3xl text-indigo-500">
-      This is a "demo" project but contains "real" data gathered from various resources and the main focus is on learning Laravel, Vuejs, and Tailwind.
+      This is a "demo" project but contains "real" data gathered from various resources. The main focus is on learning Laravel, Vuejs, and Tailwind.
     </div>
+
+    <button class="mt-6 text-center align-middle whitespace-no-wrap select-none cursor-pointer inline-block mb-0 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold text-lg rounded-r-sm leading-tight px-4 py-2 shadow">
+      <a href="https://github.com/halayuba/laravel-vuejs-tailwind-surf">Github</a>
+    </button>
+
   </div>
 </x-app-layout>
