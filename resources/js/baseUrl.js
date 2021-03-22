@@ -1,5 +1,5 @@
 export default {
-  authApiUrl: 'http://lvb-surf.test/api/user/auth',
-  usersApiUrl: 'http://lvb-surf.test/api/users',
-  resourcesApiUrl: 'http://lvb-surf.test/api/resources',
+  authApiUrl: 'http://surf.test/api/user/auth',
+  usersApiUrl: 'http://surf.test/api/users',
+  resourcesApiUrl: 'http://surf.test/api/resources',
 }

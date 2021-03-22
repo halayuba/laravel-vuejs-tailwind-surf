@@ -7,7 +7,7 @@
         <x-application-logo />
       </a>
 
-      <a href="{{ url('/') }}" class="hidden sm:text-xl text-gray-800">{{ config('app.name') }}</a>
+      <a href="{{ url('/') }}" class="hidden sm:inline-block text-xl text-gray-800">{{ config('app.name') }}</a>
     </div>
 
     <!-- NAV MENU ITEMS -->

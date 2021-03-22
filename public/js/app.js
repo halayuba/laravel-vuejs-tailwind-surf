@@ -14410,9 +14410,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  authApiUrl: 'http://lvb-surf.test/api/user/auth',
-  usersApiUrl: 'http://lvb-surf.test/api/users',
-  resourcesApiUrl: 'http://lvb-surf.test/api/resources'
+  authApiUrl: 'http://surf.test/api/user/auth',
+  usersApiUrl: 'http://surf.test/api/users',
+  resourcesApiUrl: 'http://surf.test/api/resources'
 });
 
 /***/ }),
