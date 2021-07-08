@@ -9,14 +9,16 @@
 Coded with `Laravel v8.32`, Laravel Vuejs Tailwind Surf is a demo project.
 
 ### Basic Features
-1. This is a "demo" project but the additional sql file "resources.sql" contains "real" data gathered from various resources and the main focus is on learning Laravel, Vuejs, and Tailwind.
+1. This is a "demo" project about books and other resources and the main focus is on learning Laravel, Vuejs, and Tailwind.
 2. This demo project shows variety of many techniques for creating API-based projects with Laravel/Vuejs/Tailwind.
-3. This project is under development and therefore may contain bugs, incomplete features, or broken "responsive" design.
-4. This project does not focus on Authentication and Authorizations (roles & permissions).
-5. Some "Seeders" are used to prepopulate certain tables.
-6. No image upload is used in this demo project (however, I do have another similar project but only focused on library books with image handling that I plan to push up soon).
-7. Some "Form validation" and flash messaging are used in this project.
-8. Laravel Breeze is used.
+3. The "AdminRoleMiddleware" middleware will block authorization to perform CRUD operations on Library Books (the 2nd menu item).
+4. Many-to-Many relationship is used between Books and Subjects.
+5. Migrations to create schema and DB tables and some "Seeders" are used to prepopulate certain tables. The filesystem configuration file includes a new "book" public disk for storage.
+6. "ValidateAndStoreUpload" is used to handle, validate, and store Image upload.
+7. Contains many useful concepts: Filters, form validation, scope (in Models), view composer, blade service provider, flash messaging, and helper functions are used in this project.
+8. The additional sql DB files "resources.sql", "books.sql", and "book_subject.sql" contain "real" data gathered from various online resources.
+9. Laravel Breeze and Sanctum are used for the back-end and VueJS is used for the front-end.
+10. This project is under development and therefore may contain bugs, incomplete features, or broken "responsive" design.
 
 ### Screen Shots
 Coming soon
