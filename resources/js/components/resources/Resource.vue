@@ -106,7 +106,7 @@
   import ResourceDetailsModal from './modals/ResourceDetailsModal'
   import EditResourceModal from './modals/EditResourceModal'
   import BaseModal from './modals/BaseModal'
-  import ErrorAlert from '@/misc/ErrorAlert'
+  import ErrorAlert from '@/misc/alerts/ErrorAlert'
   import SourceIcons from "./partials/SourceIcons"
   import StatusIndicator from "./partials/StatusIndicator"
 

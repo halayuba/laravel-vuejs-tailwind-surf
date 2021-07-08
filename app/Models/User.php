@@ -52,4 +52,9 @@ class User extends Authenticatable
       return asset('storage/avatars/' . $this->avatar);
 
     }
+
+    public function isAdmin()
+    {
+      return auth()->user()->is_admin;
+    }
 }

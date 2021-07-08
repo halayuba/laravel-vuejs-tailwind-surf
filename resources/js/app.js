@@ -8,6 +8,7 @@ import store from './store'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faEdit, faPlusSquare, faTrash, faCheckSquare, faEye, faUndo, faSlidersH, faUserPlus, faUsersCog, faLink, faStickyNote} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import vSelectPage from 'v-selectpage'
 
 /* == FONTAWESOME == */
 library.add(faEdit, faPlusSquare, faTrash, faCheckSquare, faEye, faUndo, faSlidersH, faUserPlus, faUsersCog, faLink, faStickyNote)
@@ -22,6 +23,13 @@ Vue.use(Toastr, {
 
 /* == vue-js-modal == */
 Vue.use(VModal)
+
+/* == TerryZ / v-selectpage == */
+Vue.use(vSelectPage, {
+  language: 'en',
+  pagination: "false",
+  title: "subjects"
+})
 
 /* == FOCUS IN FIELDS == */
 Vue.directive("focus", {

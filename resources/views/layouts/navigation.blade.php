@@ -15,6 +15,7 @@
 
       <x-nav-link route="home">Home</x-nav-link>
       <x-nav-link route="resources">Resources</x-nav-link>
+      <x-nav-link route="books">Library Books</x-nav-link>
 
     </div> <!-- NAV MENU ITEMS -->
 
@@ -23,7 +24,7 @@
       <div class="sm:hidden">
         <mobile-nav>
           <x-mobile-nav-link route="home">Home</x-mobile-nav-link>
-          <x-mobile-nav-link route="resources">Resources</x-mobile-nav-link>
+          <x-mobile-nav-link route="books">Library Books</x-mobile-nav-link>
         </mobile-nav>
       </div>
 
@@ -58,6 +59,8 @@
             <x-dropdown-link :href="route('home')">
               Profile
             </x-dropdown-link>
+
+            <hr>
 
             <!-- LOG OUT -->
             <form method="POST" action="{{ route('logout') }}">

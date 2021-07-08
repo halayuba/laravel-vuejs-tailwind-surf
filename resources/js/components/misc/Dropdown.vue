@@ -13,7 +13,7 @@
 
     <transition name="fade" appear>
     <!-- MENU LINKS -->
-    <div class="dropdown-menu absolute mt-2 bg-white rounded-md shadow-cc px-2 py-4 text-gray-600 z-50"
+    <div class="dropdown-menu absolute mt-2 bg-white rounded-md shadow-cc py-4 text-gray-600 z-50"
       v-show="isOpen"
       :class="align === 'left' ? 'left-0' : 'right-0'"
       :style="{ width }"

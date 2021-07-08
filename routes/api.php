@@ -8,15 +8,15 @@ use App\Http\Controllers\Api\{UserController, ResourceController};
 use App\Http\Resources\Learning\{SourceResource, TypeResource, StatusResource, PriorityResource};
 use App\Models\Learning\{Source, Type, Status, Priority};
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
 
 /*=====================================
   ||||| USERS |||||
   =====================================*/
-Route::get('/user/auth', [UserController::class, 'index'])->name('user');
+Route::get('/user/auth', [UserController::class, 'index'])->middleware('auth:sanctum')->name('user');
 Route::get('/users', [UserController::class, 'allUsers'])->name('users');
 
 
