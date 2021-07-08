@@ -68,9 +68,11 @@ Laravel Vuejs Tailwind Surf requires Laravel v8.32 (not tested with other versio
 ~~~
 * Update the values shown in [] below in "baseUrl.js" (in the resources/js/ folder) with your preferences.
 ~~~
-    authApiUrl: 'http://[lvb-surf.test/]api/user/auth',
-    usersApiUrl: 'http://[lvb-surf.test]/api/users',
-    resourcesApiUrl: 'http://[lvb-surf.test]/api/resources',
+    authApiUrl: 'http://{url}/api/user/auth',
+    usersApiUrl: 'http://{url}/api/users',
+    resourcesApiUrl: 'http://{url}/api/resources',
+    bookApiUrl: 'http://{url}/api/library/books',
+    libraryApiUrl: 'http://{url}/api/library',
 ~~~
 * An optional sql file "resources.sql" is included as an example
 
