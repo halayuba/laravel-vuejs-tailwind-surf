@@ -16,7 +16,7 @@ Coded with `Laravel v8.32`, Laravel Vuejs Tailwind Surf is a demo project.
 5. Migrations to create schema and DB tables and some "Seeders" are used to prepopulate certain tables. The filesystem configuration file includes a new "book" public disk for storage.
 6. "ValidateAndStoreUpload" is used to handle, validate, and store Image upload.
 7. Contains many useful concepts: Filters, form validation, scope (in Models), view composer, blade service provider, flash messaging, and helper functions are used in this project.
-8. The additional sql DB files "resources.sql", "books.sql", and "book_subject.sql" contain "real" data gathered from various online resources.
+8. (In the "extra" folder) The additional sql DB files "resources.sql", "books.sql", and "book_subject.sql" contain "real" data gathered from various online resources.  Additionally, book cover images are included in the "book" folder under "extra".
 9. Laravel Breeze and Sanctum are used for the back-end and VueJS is used for the front-end.
 10. This project is under development and therefore may contain bugs, incomplete features, or broken "responsive" design.
 
@@ -74,7 +74,7 @@ Laravel Vuejs Tailwind Surf requires Laravel v8.32 (not tested with other versio
     bookApiUrl: 'http://{url}/api/library/books',
     libraryApiUrl: 'http://{url}/api/library',
 ~~~
-* An optional sql file "resources.sql" is included as an example
+* An optional sql files "resources.sql", "books.sql", and "book_subject.sql" are included as seeders.  Also, book cover images are included in the "extra" folder but you will need to move it to be in the root folder storage under app and under the public folder.
 
 
 ### Maintainers & Contributors
