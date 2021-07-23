@@ -62,9 +62,14 @@ Laravel Vuejs Tailwind Surf requires Laravel v8.32 (not tested with other versio
 ~~~
     sudo chmod -R 777 storage bootstrap/cache
 ~~~
-* Run the following artisan commands
+* Run the following artisan command
 ~~~
-    npm install && npm run dev
+    php artisan storage:link
+~~~
+* Run the following commands
+~~~
+    npm install
+    npm run dev
 ~~~
 * Update the values shown in [] below in "baseUrl.js" (in the resources/js/ folder) with your preferences.
 ~~~
