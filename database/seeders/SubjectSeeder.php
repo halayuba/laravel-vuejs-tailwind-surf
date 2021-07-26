@@ -21,7 +21,7 @@ class SubjectSeeder extends Seeder
         ['id' => 3, 'name' => 'react', 'slug' => 'react'],
         ['id' => 4, 'name' => 'crm', 'slug' => 'crm'],
         ['id' => 5, 'name' => 'agile', 'slug' => 'agile'],
-        ['id' => 6, 'name' => 'Everything else', 'slug' => 'everything-else'],
+        ['id' => 10, 'name' => 'Everything else', 'slug' => 'everything-else'],
       ], ['name']);
     }
 }
