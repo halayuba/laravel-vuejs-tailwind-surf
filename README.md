@@ -1,8 +1,8 @@
 ## Laravel - Laravel Vuejs Tailwind Surf
 
 - Author: Simon Bashir
-- Version: 0.2
-- Release Date: Mar 15, 2021 (updated Jul 8, 2021)
+- Version: 0.3
+- Release Date: Mar 15, 2021 (updated Jul 26, 2021)
 - To see a hosted demo you can visit [laravel-vue-tailwind.surf](http://laravel-vue-tailwind.surf)
 
 ### Brief Description
@@ -23,7 +23,6 @@ Coded with `Laravel v8.32`, Laravel Vuejs Tailwind Surf is a demo project.
 ### Screen Shots
 Coming soon
 
-
 ### Disclaimer
 Laravel Vuejs Tailwind Surf is just for demo purposes. Although it is a work in progress with more features to come, I offer no active support and I do not guarantee the stability of the code so be cautious not to use in any production environment.
 
@@ -31,7 +30,6 @@ Laravel Vuejs Tailwind Surf is just for demo purposes. Although it is a work in 
 ```
 Laravel Vuejs Tailwind Surf requires Laravel v8.32 (not tested with other versions).
 ```
-
 
 * Clone this repository to your local drive
 ~~~
@@ -66,11 +64,6 @@ Laravel Vuejs Tailwind Surf requires Laravel v8.32 (not tested with other versio
 ~~~
     php artisan storage:link
 ~~~
-* Run the following commands
-~~~
-    npm install
-    npm run dev
-~~~
 * Update the values shown in [] below in "baseUrl.js" (in the resources/js/ folder) with your preferences.
 ~~~
     authApiUrl: 'http://{url}/api/user/auth',
@@ -79,7 +72,12 @@ Laravel Vuejs Tailwind Surf requires Laravel v8.32 (not tested with other versio
     bookApiUrl: 'http://{url}/api/library/books',
     libraryApiUrl: 'http://{url}/api/library',
 ~~~
-* An optional sql files "resources.sql", "books.sql", and "book_subject.sql" are included as seeders.  Also, book cover images are included in the "extra" folder but you will need to move it to be in the root folder storage under app and under the public folder.
+* Run the following commands
+~~~
+    npm install
+    npm run dev
+~~~
+* Optional sql files "resources.sql", "books.sql", and "book_subject.sql" are included as seeders in the "extra" folder (under "/database/seeders/extra").  Also, book cover images are included in the "extra" folder but you will need to move the entire folder to the storage folder (under "storage/app/public/books").
 
 
 ### Maintainers & Contributors

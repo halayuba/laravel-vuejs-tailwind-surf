@@ -19,6 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LearningTypeSeeder::class);
         $this->call(PrioritySeeder::class);
         $this->call(StatusSeeder::class);
-        $this->call(SubjectsSeeder::class);
+        $this->call(SubjectSeeder::class);
     }
 }
