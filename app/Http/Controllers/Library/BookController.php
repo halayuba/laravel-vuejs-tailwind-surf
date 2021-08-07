@@ -50,7 +50,7 @@ class BookController extends Controller
 
     //== VALIDATION: DUPLICATE TITLE
     //====================
-    if (Book::isDuplicate($request->title)->count() > 0)
+    if ( Book::isDuplicate($request->title)->count() > 0 )
     {
       return response()->json([
         'status' => 422,
@@ -123,7 +123,7 @@ class BookController extends Controller
       'file' => $image_name,
     ]);
 
-    if ($status)
+    if ( $status )
     {
       /* == UPDATE SUBJECTS FOR THIS BOOK == */
       $subjects = explode(',', $request->subjects);
@@ -139,9 +139,11 @@ class BookController extends Controller
   public function destroy(Book $book)
   {
     /* == PERFORM DELETE == */
-    if ($status = $book->delete()) {
+    if ( $status = $book->delete() )
+    {
       /* == IF BOOK HAS A COVER IMAGE == */
-      if ($book->file) {
+      if ( $book->file )
+      {
         /* == DELETE FROM THE LOCAL STORAGE == */
         $this->deleteBookCover($book);
       }
@@ -168,7 +170,8 @@ class BookController extends Controller
   public function deleteBookCover(Book $book)
   {
     /* == REMOVE FROM THE LOCAL FILE STORAGE == */
-    if (Storage::disk('books')->exists($book->file)) {
+    if ( Storage::disk('books')->exists($book->file ))
+    {
       Storage::disk('books')->delete($book->file);
     }
 
