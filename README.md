@@ -52,6 +52,11 @@ Laravel Vuejs Tailwind Surf requires Laravel v8.32 (not tested with other versio
     DB_USERNAME=[username]
     DB_PASSWORD=[password]
 ~~~
+* In .env add the following (e.g., to the bottom of .env)
+~~~
+    SANCTUM_STATEFUL_DOMAINS={url}
+    SESSION_DOMAIN={.url}
+~~~
 * Run all migrations to create and populate the database tables
 ~~~
     php artisan migrate --seed
@@ -75,7 +80,7 @@ Laravel Vuejs Tailwind Surf requires Laravel v8.32 (not tested with other versio
 * Run the following commands
 ~~~
     npm install
-    npm run dev
+    npm run dev (for development)
 ~~~
 * Optional sql files "resources.sql", "books.sql", and "book_subject.sql" are included as seeders in the "extra" folder (under "/database/seeders/extra").  Also, book cover images are included in the "extra" folder but you will need to move the entire folder to the storage folder (under "storage/app/public/books").
 
