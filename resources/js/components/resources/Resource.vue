@@ -24,8 +24,13 @@
 
         <p class="mt-1 block">{{ resource.title }}</p>
 
-        <!-- LINK -->
-        <icon name="link" class="w-4 h-4 fill-current text-gray-400 hover:text-gray-500 inline-block ml-1" />
+        <div class="flex">
+          <!-- LINK -->
+          <icon name="link" class="w-4 h-4 fill-current text-gray-400 hover:text-gray-500 inline-block ml-1" />
+
+          <!-- PUBLISHED AT AND DURATION -->
+          <span class="ml-4 text-xs">{{ resource.publishedAtAndDuration }}</span>
+        </div>
       </a>
 
       <!-- AUTHOR -->

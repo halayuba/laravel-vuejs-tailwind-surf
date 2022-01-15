@@ -2,7 +2,7 @@
 
 - Author: Simon Bashir
 - Version: 0.3
-- Release Date: Mar 15, 2021 (updated Jul 26, 2021)
+- Release Date: Mar 15, 2021 (updated Jan 14, 2022)
 - To see a hosted demo you can visit [laravel-vue-tailwind.surf](http://laravel-vue-tailwind.surf)
 
 ### Brief Description

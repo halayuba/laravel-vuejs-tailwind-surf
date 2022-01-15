@@ -12,6 +12,8 @@ class Resource extends Model
 {
     use HasFactory;
 
+    protected $casts = ['published_at' => 'date:Y-m-d'];
+
     public static function boot()
     {
       parent::boot();
@@ -48,25 +50,15 @@ class Resource extends Model
           'status_id' => $completedID
         ]);
       }
-/*
-     //== THE TBL STRUCTURE WILL BE UPDATED AND THE FOLLOWING ATTRIBUTES WILL BE REMOVED
-    //====================
-      if( $this->percentage_completed === 100 ){
-        return $this->update([
-          'percentage_completed' => 50,
-          'completed_at' => null,
-          'status_id' => 4
-        ]);
-      }
-      else
+    }
+
+    public function getResourcePublishedAtDurationAttribute()
+    {
+      if($this->published_at)
       {
-        return $this->update([
-          'percentage_completed' => 100,
-          'completed_at' => now(),
-          'status_id' => 1
-        ]);
+        return $this->published_at->format('m/d/y') . ' - ' . $this->duration;
       }
-*/
+      return null;
     }
 
     /* //====================

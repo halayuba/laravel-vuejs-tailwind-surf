@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="mt-4 xl:mt-0 flex justify-end w-auto">
+    <div class="mt-4 sm:mt-0 flex justify-end w-auto">
       <a href="#" class="flex justify-center items-center inline-block px-6 py-4 leading-none bg-gray-800 hover:bg-gray-700 text-sm font-medium text-white rounded"
         @click.prevent="addResource"
       >

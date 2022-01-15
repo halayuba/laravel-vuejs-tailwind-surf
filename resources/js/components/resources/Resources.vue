@@ -2,7 +2,7 @@
   <div>
 
     <!-- SEARCH & FILTER BUTTONS -->
-    <div class="mt-6 md:mt-8 xl:mt-12 flex flex-col xl:flex-row xl:justify-between xl:items-center">
+    <div class="mt-6 md:mt-8 xl:mt-12 flex flex-col sm:flex-row sm:justify-between sm:items-center">
 
       <!-- SEARCH FIELD -->
       <SearchInput

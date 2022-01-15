@@ -19,9 +19,9 @@ class CreateResourcesTable extends Migration
             $table->string('author')->nullable();
             $table->string('url')->nullable();
             $table->string('skills')->nullable();
+            // $table->string('duration')->nullable(); //== ADDED IN ANOTHER MIGRATION
+            // $table->date('published_at')->nullable(); //== ADDED IN ANOTHER MIGRATION
             $table->text('note')->nullable();
-            $table->unsignedTinyInteger('percentage_completed')->nullable(); //== WILL BE MOVED TO PERFORMANCES TBL
-            $table->date('completed_at')->nullable(); //== WILL BE MOVED TO PERFORMANCES TBL
             $table->foreignId('source_id')->constrained()->cascadeOnDelete();
             $table->foreignId('status_id')->constrained()->cascadeOnDelete();
             $table->foreignId('type_id')->constrained()->cascadeOnDelete()->default(1);

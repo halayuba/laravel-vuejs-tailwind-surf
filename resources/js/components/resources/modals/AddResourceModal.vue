@@ -25,9 +25,10 @@
           Title
         </label>
         <input id="title" type="text" class="form_input" autofocus
+          v-focus
           v-model="form.title"
           :class="{ 'border border-red-500' : highlight }"
-          v-focus
+          @blur="titleConfirm"
         >
       </div>
 
@@ -60,7 +61,7 @@
           <label for="source" class="form_label">Source</label>
           <select id="source" class="form_input"
             v-model="form.source"
-            v-if="sources.length"
+            v-if="sources"
           >
             <option disabled value="">Please select one</option>
             <option class=""
@@ -77,7 +78,7 @@
           <label for="type" class="form_label">Type</label>
           <select id="type" class="form_input"
             v-model="form.type"
-            v-if="types.length"
+            v-if="types"
           >
             <option disabled value="">Please select one</option>
             <option class=""
@@ -94,7 +95,7 @@
           <label for="priority" class="form_label">Priority</label>
           <select id="priority" class="form_input"
             v-model="form.priority"
-            v-if="priorities.length"
+            v-if="priorities"
           >
             <option disabled value="">Please select one</option>
             <option class=""
@@ -105,6 +106,27 @@
             </option>
           </select>
         </div>
+      </div>
+
+      <!-- PUBLISHED DATE AND DURATION -->
+      <div class="flex flex-col lg:flex-row mt-0 sm:mt-4">
+
+        <!-- PUBLISHED DATE -->
+        <div class="w-full mt-2 lg:mt-0">
+          <label class="form_label">Published date</label>
+          <input type="date" class="form_input"
+            v-model="form.published_at"
+          >
+        </div>
+
+        <!-- DURATION -->
+        <div class="w-full mt-2 lg:mt-0 lg:ml-3">
+          <label class="form_label">Duration</label>
+          <input class="form_input"
+            v-model="form.duration"
+          >
+        </div> <!-- PUBLISHED DATE AND DURATION -->
+
       </div>
 
       <!-- SKILLS -->
@@ -161,7 +183,9 @@ export default {
         type: 1,
         status:{
           'name': "Not Started"
-        }
+        },
+        published_at: '',
+        duration: ''
       }
     }
   },
@@ -192,16 +216,18 @@ export default {
     ...mapActions({
       storeResource: 'resources/storeResource',
     }),
+    titleConfirm(){
+      /* == CHECK IF THE LEARNING RESOURCE IS A DUPLICATE (HAD PREVIOUSLY BEEN STORED) == */
+      const flagExist = this.resources.some(item => item.title.toLowerCase() == this.form.title.toLowerCase())
+      if(flagExist){
+        this.$toastr.e('Duplicated entry. Already exists.')
+        this.errors.push('Duplicated entry. Try again.')
+        return
+      }
+    },
     formSubmit() {
       if ( this.formEditIsReady ) {
 
-        /* == CHECK IF THE LEARNING RESOURCE IS A DUPLICATE (HAD PREVIOUSLY BEEN STORED) == */
-        const flagExist = this.resources.some(item => item.title.toLowerCase() == this.form.title.toLowerCase())
-        if(flagExist){
-          this.$toastr.e('Already exists.')
-          this.errors.push('Duplicated entry. Try again.')
-          return
-        }
         this.storeResource({
           payload: this.form
         })
@@ -241,6 +267,8 @@ export default {
       this.form.title = ''
       this.form.author = ''
       this.form.url = ''
+      this.form.duration = ''
+      this.form.published_at = ''
       this.$emit('closeModal')
     },
 

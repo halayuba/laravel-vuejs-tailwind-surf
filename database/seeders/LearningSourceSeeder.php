@@ -23,7 +23,9 @@ class LearningSourceSeeder extends Seeder
           ('Youtube'),
           ('Webinar'),
           ('OReilley'),
-          ('Newsletter')
+          ('Udemy'),
+          ('Newsletter'),
+          ('Website')          
         ");
     }
 }

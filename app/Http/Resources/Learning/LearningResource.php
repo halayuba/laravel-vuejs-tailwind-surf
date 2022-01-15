@@ -23,14 +23,12 @@ class LearningResource extends JsonResource
         'url' => $this->url,
         'skills' => $this->skills,
         'note' => $this->note,
-        // 'percentage_completed' => $this->percentage_completed,
-        // 'completed_at' => $this->completed_at,
         'created_at' => $this->created_at,
         'source' => new SourceResource($this->whenLoaded('source')),
         'status' => new StatusResource($this->whenLoaded('status')),
         'type' => new TypeResource($this->whenLoaded('type')),
         'priority' => new PriorityResource($this->whenLoaded('priority')),
-        // 'priority' => $this->priority,
+        'publishedAtAndDuration' => $this->resourcePublishedAtDuration,
       ];
     }
 }

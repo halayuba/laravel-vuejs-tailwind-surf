@@ -3,11 +3,11 @@
 
     <!-- LOGO -->
     <div class="flex-shrink-0 flex items-center">
-      <a href="{{ route('home') }}" class="w-12 h-auto fill-current inline-block">
+      <a href="{{ route('home') }}" class="w-12 h-auto fill-current inline-block" title="{{ config('app.name') }}">
         <x-application-logo />
       </a>
 
-      <a href="{{ url('/') }}" class="hidden sm:inline-block text-xl text-gray-800">{{ config('app.name') }}</a>
+      <a href="{{ url('/') }}" class="hidden md:inline-block text-xl text-gray-800">{{ config('app.name') }}</a>
     </div>
 
     <!-- NAV MENU ITEMS -->

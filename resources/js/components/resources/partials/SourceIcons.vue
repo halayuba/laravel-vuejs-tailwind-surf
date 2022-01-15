@@ -26,6 +26,11 @@
       <icon name="Lynda" class="w-6 h-auto" title="Lynda" />
     </div>
     <div class=""
+      v-else-if="source === 'Udemy'"
+    >
+      <icon name="Udemy" class="w-10 h-auto" title="Udemy" />
+    </div>
+    <div class=""
       v-else-if="source === 'Github'"
     >
       <icon name="Github" class="w-6 h-auto" title="Github" />
@@ -49,6 +54,11 @@
       v-else-if="source === 'Newsletter'"
     >
       <icon name="Magazine" class="w-6 h-auto fill-current text-gray-600" title="Newsletter" />
+    </div>
+    <div class=""
+      v-else-if="source === 'Website'"
+    >
+      <icon name="Website" class="w-6 h-auto fill-current text-gray-600" title="Newsletter" />
     </div>
     <div v-else class="text-xs">
       {{ source }}
