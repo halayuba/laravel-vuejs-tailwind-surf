@@ -16,11 +16,11 @@ class PrioritySeeder extends Seeder
     public function run()
     {
         \DB::insert("INSERT INTO priorities (id, name) VALUES
-          (1, 'Very low'),
-          (2, 'Low'),
+          (1, 'Critical'),
+          (2, 'High'),
           (3, 'Medium'),
-          (4, 'High'),
-          (5, 'Critical')
+          (4, 'Low'),
+          (5, 'Very low')
         ");
     }
 }

@@ -32,7 +32,7 @@ Route::group(['prefix'=>'resources'], function(){
 
   /* == LEARNING SOURCES == */
   Route::get('/sources', function(Request $request){
-    return SourceResource::collection(Source::all());
+    return SourceResource::collection(Source::orderBy('name')->get());
   });
 
   /* == LEARNING TYPES == */
