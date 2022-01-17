@@ -23,7 +23,7 @@ class LearningTypeSeeder extends Seeder
           ['id' => 5, 'name' => 'DBMS'],
           ['id' => 6, 'name' => 'Business / PM'],
           ['id' => 7, 'name' => 'Ideas'],
-          ['id' => 8, 'name' => 'Tool'],
+          ['id' => 8, 'name' => 'Tools & Utilities'],
           ['id' => 9, 'name' => 'DevOps'],
         ], ['name']);
     }
