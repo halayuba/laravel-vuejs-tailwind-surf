@@ -7,56 +7,40 @@
       <book-filters :subjects="subjects" />
 
       <!-- SEARCH -->
-      <div class="w-full relative my-4">
-
-        <!-- SEARCH ICON -->
-        <figure class="absolute top-0 left-0 pl-2 flex items-center h-full">
-          <icon name="search" class="w-6 h-6 fill-current text-gray-400 inline-block" />
-        </figure>
-
-        <!-- CLEAR SEARCH -->
-        <figure class="absolute right-0 top-0 pr-4 mt-2 flex items-center text-red-500 cursor-pointer" title="clear search"
-          @click="clearSearch"
-          v-if="searchField"
-        >
-          <icon name="backspace" class="w-10 h-10" />
-        </figure>
-
-        <input class="w-full pl-10 pr-4 py-4 bg-gray-200 border border-gray-400 outline-none" placeholder="Search" autofocus
-          v-model="searchField"
-          @input="quickSearch"
-        >
-
-      </div> <!-- SEARCH -->
+      <SearchInput
+        @quickSearch="quickSearch"
+        @clearSearch="clearSearch"
+      />
 
       <!-- HEADING SECTION -->
-      <div class="mt-8 flex flex-col-reverse sm:flex-row sm:justify-between mb-2">
+      <div class="mt-8 flex justify-between items-center mb-2">
         <div class="flex items-center">
           <h2 class="text-lg md:text-xl xl:text-2xl sm:font-medium uppercase">Book LIST</h2>
-          <label class="rounded-full bg_color text-black text-xs px-3 py-1 ml-2 tracking-wide"
+          <label class="rounded-full bg-blue-300 text-black text-xs px-3 py-1 ml-2 tracking-wide"
             v-if="countBooks"
           >{{ countBooks }}</label>
         </div>
 
         <!-- BUTTON TO ADD A NEW BOOK -->
-        <div class="mb-4 sm:mb-0">
-          <button type="button" class="btn_new transition"
-            :class="btnState"
-            @click="addNewBook"
-          >
-            Add new book
-          </button>
-        </div>
+        <button type="button" class="btn_new transition"
+          :class="btnState"
+          @click="addNewBook"
+        >
+          Add new book
+        </button>
       </div>
 
       <!-- TABLE -->
       <div class="bg-white border border-gray-300 border-t-4 border_t_color rounded px-4 py-6 mb-4">
         <!-- HEADER -->
         <div class="hidden sm:flex sm:justify-between sm:mb-4 tbl_header">
-          <div class="">Title</div>
-          <div class="">Author</div>
-          <div class="">Publish Date</div>
-          <div class=" flex justify-end">Actions</div>
+          <div class="flex-1">Title</div>
+          <div class="flex-1">Author</div>
+          <div class="flex justify-end space-x-4">
+            <div class="hidden lg:block">Publish Date</div>
+            <div class="hidden lg:block">Actions</div>
+            <div class="lg:hidden">Publish Date / Actions</div>
+          </div>
         </div>
 
         <!-- BOOK LIST -->
@@ -67,39 +51,42 @@
             v-for="book in result"
             :key="book.id"
           >
-            <div class="flex flex-col sm:flex-row border-b border-gray-300 py-2 my-2">
+            <div class="flex flex-col sm:flex-row border-b border-gray-200 py-2 my-2">
 
-              <!-- BOOK COVER -->
-              <div class="flex-none sm:mr-2">
+              <div class="flex-1 flex flex-col sm:flex-row">
 
-                <div class="block bg-cover bg-center w-24 h-32 rounded-sm shadow-md"
-                  :style="{ 'background-image': `url(${book.file})` }"
-                >
-                </div>
-              </div>
+                <!-- BOOK COVER -->
+                <div class="flex-none sm:mr-2">
 
-              <!-- BOOK TITLE -->
-              <div class="flex-1 sm:px-2 mt-2 sm:mt-0">
-                <a class="no-underline text-indigo-500"
-                  :href="book.url"
-                >
-                  {{ book.title }}
-                </a>
-
-                <!-- PAGES -->
-                <div class="text-gray-700 text-sm mt-2"
-                  v-if="book.pages"
-                >
-                  {{ book.pages }}
-                  <span class="text-xs ml-1 tracking-tight">pages</span>
+                  <div class="block bg-cover bg-center w-24 h-32 rounded-sm shadow-md"
+                    :style="{ 'background-image': `url(${book.file})` }"
+                  >
+                  </div>
                 </div>
 
-                <!-- PRIORITY -->
-                <div class="text-gray-700 text-sm mt-2"
-                  v-if="book.priority"
-                >
-                  <span class="text-xs mr-1 tracking-tight">Priority:</span>
-                  {{ book.priority | priority }}
+                <!-- BOOK TITLE -->
+                <div class="flex-1 sm:px-2 mt-2 sm:mt-0">
+                  <a class="no-underline text-indigo-500"
+                    :href="book.url"
+                  >
+                    {{ book.title }}
+                  </a>
+
+                  <!-- PAGES -->
+                  <div class="text-gray-700 text-sm mt-2"
+                    v-if="book.pages"
+                  >
+                    {{ book.pages }}
+                    <span class="text-xs ml-1 tracking-tight">pages</span>
+                  </div>
+
+                  <!-- PRIORITY -->
+                  <div class="text-gray-700 text-sm mt-2"
+                    v-if="book.priority"
+                  >
+                    <span class="text-xs mr-1 tracking-tight">Priority:</span>
+                    {{ book.priority | priority }}
+                  </div>
                 </div>
               </div>
 
@@ -108,55 +95,47 @@
                 {{ book.author }}
               </div>
 
-              <!-- PUBLISH DATE -->
-              <div class="flex-1 mt-2 sm:mt-0">
-                <!-- SHOW ONLY IF EXISTS -->
-                <span
-                  v-if="book.publish_date"
-                >
-                  {{ book.publish_date | orderDate }}
-                </span>
-              </div>
-
-              <!-- ACTION BUTTONS -->
-              <div class="flex-none mt-4 sm:mt-0">
-                <div class="flex sm:flex-col lg:flex-row">
-
-                  <!-- SECTIONS -->
-                  <div class="btn_action mr-1 sm:mr-0 sm:mb-1 lg:mb-0 lg:mr-1 cursor-pointer">
-                      <icon name="sections" />
-                  </div>
-
-                  <!-- COMMENTS -->
-                  <div class="btn_action mr-1 sm:mr-0 sm:mb-1 lg:mb-0 lg:mr-1 cursor-pointer">
-                      <icon name="comments" />
-                  </div>
-
-                  <!-- EDIT -->
-                  <div class="btn_action mr-1 sm:mr-0 sm:mb-1 lg:mb-0 lg:mr-1 cursor-pointer"
-                    :class="btnState"
+              <div class="flex flex-col md:flex-row md:justify-end">
+                <!-- PUBLISH DATE -->
+                <div class="">
+                  <!-- SHOW ONLY IF EXISTS -->
+                  <span
+                    v-if="book.publish_date"
                   >
-                    <a href="#" class="" title="edit"
-                      :class="btnState"
-                      @click.prevent="editBook(book)"
-                    >
-                      <icon name="edit2" class="fill-current text-yellow-500 inline-block" />
-                    </a>
-                  </div>
-
-                  <!-- DELETE -->
-                  <div class="btn_action cursor-pointer"
-                    :class="btnState"
-                  >
-                    <a href="#" class="" title="delete"
-                      :class="btnState"
-                      @click.prevent="deleteBook(book)"
-                    >
-                      <icon name="delete2" class="fill-current text-red-500 inline-block" />
-                    </a>
-                  </div>
+                    {{ book.publish_date | orderDate }}
+                  </span>
                 </div>
-              </div> <!-- END BUTTONS -->
+
+                <!-- ACTION BUTTONS -->
+                <div class="flex-none mt-6 md:mt-0 md:ml-4">
+                  <div class="flex sm:justify-end">
+
+                    <!-- EDIT -->
+                    <div class="btn_action mr-1 sm:mr-0 sm:mb-1 lg:mb-0 lg:mr-1 cursor-pointer"
+                      :class="btnState"
+                    >
+                      <a href="#" class="" title="edit"
+                        :class="btnState"
+                        @click.prevent="editBook(book)"
+                      >
+                        <icon name="edit2" class="fill-current text-yellow-500 inline-block" />
+                      </a>
+                    </div>
+
+                    <!-- DELETE -->
+                    <div class="btn_action cursor-pointer"
+                      :class="btnState"
+                    >
+                      <a href="#" class="" title="delete"
+                        :class="btnState"
+                        @click.prevent="deleteBook(book)"
+                      >
+                        <icon name="delete2" class="fill-current text-red-500 inline-block" />
+                      </a>
+                    </div>
+                  </div>
+                </div> <!-- END BUTTONS -->
+              </div>
             </div>
           </div>
         </div> <!-- END BOOK LIST -->
@@ -191,24 +170,22 @@
   import moment from 'moment'
   import BookAddForm from './modals/BookAddForm'
   import BookEditForm from './modals/BookEditForm'
-  import BookFilters from './BookFilters'
+  import BookFilters from './partials/BookFilters'
+  import SearchInput from './partials/SearchInput'
 
   export default {
-    name: 'books',
     data() {
       return {
         selectedBook: '',
         result: [],
-        searchField: '',
         searchFlag: false,
-        authenticated: false,
-        // booksCount: 0
       }
     },
     components: {
       BookAddForm,
       BookEditForm,
       BookFilters,
+      SearchInput
     },
     computed: {
       ...mapGetters({
@@ -217,16 +194,8 @@
         books: 'books/books',
       }),
       countBooks() {
-        return this.books? this.books.length : false
+        return this.result? this.result.length : false
         // return this.books.length? this.books.length : false
-      },
-      link(uuid) {
-        return {
-          name: 'comments',
-          params: {
-            uuid: uuid
-          }
-        }
       },
       btnState() {
         return {
@@ -262,10 +231,10 @@
         .then(() => {
            this.result = this.books
 
-          if ( ! this.result.length > 0 ) {
-            this.$toastr.i('No books found')
-          } else {
+          if ( this.result.length > 0 ) {
             this.$toastr.s('Books have been retrieved successfully')
+          } else {
+            this.$toastr.i('No books found')
           }
         })
       },
@@ -306,14 +275,13 @@
           this.$toastr.w('Only authenticated and authorized users may perform this action.')
         }
       },
-      quickSearch(e) {
-        let value = this.captureSearchValue(e)
+      quickSearch(searchValue) {
+        let value = this.captureSearchValue(searchValue)
           this.setList(this.result.filter(book => {
             return book.title.toLowerCase().includes(value)
           }).sort((bookA, bookB) => {
             return this.relevancy(bookB.title, value) - this.relevancy(bookA.title, value)
           }))
-
       },
       setList(filtered) {
         this.clearList()
@@ -327,12 +295,8 @@
         else if ( value.startsWith(searchTerm) ) return 1
         else if ( value.includes(searchTerm) ) return 0
       },
-      clearSearch() {
-        this.searchField = ''
-        this.searchFlag = false
-      },
-      captureSearchValue(e) {
-        let value = e.target.value
+      captureSearchValue(searchValue) {
+        let value = searchValue
         if( value && value.trim().length > 0) {
           this.searchFlag = true
           return value.trim().toLowerCase()
@@ -342,21 +306,23 @@
           this.clearList()
         }
       },
-
+      clearSearch() {
+        this.$toastr.i('The search result is cleared.')
+        this.result = this.books
+        this.searchFlag = false
+      },
     },
-    created() {
-      this.fetchBooks()
-      this.fetchSubjects()
-    },
-    mounted() {
-      this.userAuth()
-    },
-    updated() {
-      if ( ! this.searchFlag ) {
+    watch:{
+      books(books){
         this.result = this.books
       }
-
-      // this.authenticated = this.auth
+    },
+    created() {
+      this.userAuth()
+    },
+    mounted() {
+      this.fetchBooks()
+      this.fetchSubjects()
     },
 
   }
