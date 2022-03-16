@@ -14809,12 +14809,49 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       highlight: false,
+      publishedAt: 'show',
       errors: [],
       form: {
         title: this.resource.title,
@@ -14824,7 +14861,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         note: this.resource.note,
         priority: this.resource.priority.id,
         source: this.resource.source.id,
-        type: this.resource.type.id
+        type: this.resource.type.id,
+        published_at: this.resource.published_at,
+        duration: this.resource.duration
       }
     };
   },
@@ -62804,9 +62843,11 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "w-full mt-2 lg:mt-0 lg:ml-3" }, [
-                  _c("label", { staticClass: "form_label" }, [
-                    _vm._v("Duration")
-                  ]),
+                  _c(
+                    "label",
+                    { staticClass: "form_label", attrs: { for: "duration" } },
+                    [_vm._v("Duration")]
+                  ),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -62818,6 +62859,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form_input",
+                    attrs: { id: "duration", type: "text" },
                     domProps: { value: _vm.form.duration },
                     on: {
                       input: function($event) {
@@ -63373,6 +63415,105 @@ var render = function() {
                       : _vm._e()
                   ]
                 )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "flex flex-col lg:flex-row mt-0 sm:mt-4" },
+              [
+                _c("div", { staticClass: "w-full mt-2 lg:mt-0" }, [
+                  _c("label", { staticClass: "form_label" }, [
+                    _vm._v("Published date")
+                  ]),
+                  _vm._v(" "),
+                  _vm.publishedAt == "show" && _vm.resource.published_at
+                    ? _c(
+                        "div",
+                        {
+                          staticClass:
+                            "w-full mt-2 text-gray-600 bg-gray-100 px-2 leading-loose flex justify-between items-center"
+                        },
+                        [
+                          _c("span", { staticClass: "inline-block" }, [
+                            _vm._v(_vm._s(_vm.resource.published_at))
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            {
+                              staticClass:
+                                "text-sm text-indigo-400 bg-gray-200 p-2 rounded-full cursor-pointer hover:bg-gray-300",
+                              on: {
+                                click: function($event) {
+                                  _vm.publishedAt = "edit"
+                                }
+                              }
+                            },
+                            [_vm._v("Edit")]
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.publishedAt == "edit" || !_vm.resource.published_at
+                    ? _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.published_at,
+                            expression: "form.published_at"
+                          }
+                        ],
+                        staticClass: "form_input",
+                        attrs: { type: "date" },
+                        domProps: { value: _vm.form.published_at },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "published_at",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "w-full mt-2 lg:mt-0 lg:ml-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form_label", attrs: { for: "duration" } },
+                    [_vm._v("Duration")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.duration,
+                        expression: "form.duration"
+                      }
+                    ],
+                    staticClass: "form_input",
+                    attrs: { id: "duration", type: "text" },
+                    domProps: { value: _vm.form.duration },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "duration", $event.target.value)
+                      }
+                    }
+                  })
+                ])
               ]
             ),
             _vm._v(" "),

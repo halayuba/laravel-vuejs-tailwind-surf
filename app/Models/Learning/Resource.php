@@ -61,6 +61,15 @@ class Resource extends Model
       return null;
     }
 
+    public function getResourcePublishedAtAttribute()
+    {
+      if($this->published_at)
+      {
+        return $this->published_at->format('m/d/y');
+      }
+      return null;
+    }
+
     /* //====================
       //== RELATIONSHIPS
      //==================== */

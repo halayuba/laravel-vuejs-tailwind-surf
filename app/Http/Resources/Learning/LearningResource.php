@@ -23,6 +23,8 @@ class LearningResource extends JsonResource
         'url' => $this->url,
         'skills' => $this->skills,
         'note' => $this->note,
+        'duration' => $this->duration,
+        'published_at' => (string) $this->resourcePublishedAt,
         'created_at' => $this->created_at,
         'source' => new SourceResource($this->whenLoaded('source')),
         'status' => new StatusResource($this->whenLoaded('status')),

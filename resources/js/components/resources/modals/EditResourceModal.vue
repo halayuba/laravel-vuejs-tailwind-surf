@@ -104,6 +104,42 @@
         </div>
       </div>
 
+      <!-- PUBLISHED DATE AND DURATION -->
+      <div class="flex flex-col lg:flex-row mt-0 sm:mt-4">
+
+        <!-- PUBLISHED DATE -->
+        <div class="w-full mt-2 lg:mt-0">
+          <label class="form_label">Published date</label>
+
+          <!-- SHOW MODE -->
+          <div class="w-full mt-2 text-gray-600 bg-gray-100 px-2 leading-loose flex justify-between items-center"
+            v-if="publishedAt == 'show' && resource.published_at"
+          >
+            <span class="inline-block">{{ resource.published_at }}</span>
+
+            <!-- BUTTON TO SWITCH TO EDIT MODE -->
+            <span class="text-sm text-indigo-400 bg-gray-200 p-2 rounded-full cursor-pointer hover:bg-gray-300"
+              @click="publishedAt = 'edit'"
+            >Edit</span>
+          </div>
+
+          <!-- EDIT MODE -->
+          <input type="date" class="form_input"
+            v-model="form.published_at"
+            v-if="publishedAt == 'edit' || ! resource.published_at"
+          >
+        </div>
+
+        <!-- DURATION -->
+        <div class="w-full mt-2 lg:mt-0 lg:ml-3">
+          <label for="duration" class="form_label">Duration</label>
+          <input id="duration" type="text" class="form_input"
+            v-model="form.duration"
+          >
+        </div> <!-- PUBLISHED DATE AND DURATION -->
+
+      </div>
+
       <!-- SKILLS -->
       <div class="mt-4">
         <label for="skills" class="form_label">Skills</label>
@@ -146,6 +182,7 @@ export default {
   data () {
     return {
       highlight: false,
+      publishedAt: 'show',
       errors: [],
       form:{
         title: this.resource.title,
@@ -155,7 +192,9 @@ export default {
         note: this.resource.note,
         priority: this.resource.priority.id,
         source: this.resource.source.id,
-        type: this.resource.type.id
+        type: this.resource.type.id,
+        published_at: this.resource.published_at,
+        duration: this.resource.duration,
       }
     }
   },

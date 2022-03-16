@@ -121,8 +121,8 @@
 
         <!-- DURATION -->
         <div class="w-full mt-2 lg:mt-0 lg:ml-3">
-          <label class="form_label">Duration</label>
-          <input class="form_input"
+          <label for="duration" class="form_label">Duration</label>
+          <input id="duration" type="text" class="form_input"
             v-model="form.duration"
           >
         </div> <!-- PUBLISHED DATE AND DURATION -->
